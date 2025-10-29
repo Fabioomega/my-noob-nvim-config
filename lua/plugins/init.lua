@@ -21,6 +21,19 @@ return {
     "mg979/vim-visual-multi",
     lazy = false,
   },
+  {
+    "tpope/vim-fugitive",
+    cmd = {
+      "Git",
+      "Gdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "GMove",
+      "GDelete",
+      "GBrowse",
+    },
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
