@@ -18,4 +18,4 @@ vim.api.nvim_create_user_command("Config", function()
 	-- Open the config directory in Neovim
 	vim.cmd("cd " .. config_path)
 	vim.cmd("edit " .. config_path)
-end, { desc = "Open Neovim config folder and set it as working directory" })
+end, { desc = "Open Neovim config folder" })
