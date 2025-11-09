@@ -6,8 +6,9 @@ local options = {
 		rust = { "rustfmt" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
-		-- css = { "prettier" },
-		-- html = { "prettier" },
+		vue = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",
