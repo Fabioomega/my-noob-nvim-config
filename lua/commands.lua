@@ -13,13 +13,13 @@ else
 	config_path = vim.fn.expand("~/.config/nvim")
 end
 
-vim.api.nvim_create_user_command("Config", function()
+create_cmd("Config", function()
 	-- Open the config directory in Neovim
 	vim.cmd("cd " .. config_path)
 	vim.cmd("edit " .. config_path)
 end, { desc = "Open Neovim config folder" })
 
-vim.api.nvim_create_user_command("DieDocker", function()
+create_cmd("DieDocker", function()
 	local os_name = vim.loop.os_uname().sysname
 	local cmd
 
