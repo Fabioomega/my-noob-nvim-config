@@ -32,7 +32,17 @@ return {
 			"GBrowse",
 		},
 	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		opts = function()
+			local opts = require("nvchad.configs.nvimtree")
 
+			opts.filters.git_ignored = false
+
+			return opts
+		end,
+	},
 	-- test new blink
 	-- { import = "nvchad.blink.lazyspec" },
 
