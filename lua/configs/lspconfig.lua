@@ -29,7 +29,7 @@ local vtsls_config = {
 
 vim.lsp.config("vtsls", vtsls_config)
 
-local servers = { "html", "cssls", "ty", "clangd", "vtsls", "vue_ls" }
+local servers = { "html", "cssls", "ty", "clangd", "vtsls", "vue_ls", "harper_ls" }
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
