@@ -15,20 +15,20 @@ return {
     "mrcjkb/rustaceanvim",
     lazy = false, -- This plugin is already lazy
   },
-  {
-    "mg979/vim-visual-multi",
-    lazy = false,
-    init = function()
-      vim.g.VM_maps = {
-        ["Add Cursor Down"] = "<C-Down>",
-        ["Add Cursor Up"] = "<C-Up>",
-        ["Add Cursor Left"] = "<C-Left>",
-        ["Add Cursor Right"] = "<C-Right>",
-        ["Select l"] = "",
-        ["Select h"] = "",
-      }
-    end,
-  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  --   init = function()
+  --     vim.g.VM_maps = {
+  --       ["Add Cursor Down"] = "<C-Down>",
+  --       ["Add Cursor Up"] = "<C-Up>",
+  --       ["Add Cursor Left"] = "<C-Left>",
+  --       ["Add Cursor Right"] = "<C-Right>",
+  --       ["Select l"] = "",
+  --       ["Select h"] = "",
+  --     }
+  --   end,
+  -- },
   {
     "tpope/vim-fugitive",
     cmd = {
@@ -52,6 +52,11 @@ return {
 
       return opts
     end,
+  },
+  {
+    "Chaitanyabsprip/fastaction.nvim",
+    ---@type FastActionConfig
+    opts = {},
   },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },

@@ -1,19 +1,6 @@
 require "nvchad.mappings"
 
-local function toggle_nvim_tree()
-  local api = require "nvim-tree.api"
-  local view = require "nvim-tree.view"
-
-  if view.is_visible() then
-    api.tree.close()
-  else
-    api.tree.open()
-  end
-end
-
 local map = vim.keymap.set
-
-map("n", "<leader>e", toggle_nvim_tree, { noremap = true, silent = true, desc = "Open nvim-tree" })
 
 map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
@@ -24,11 +11,7 @@ map("n", "<leader>E", function()
   }
 end, { desc = "Show buffer errors" })
 
-map("n", "<leader><leader>", function()
-  require("telescope.builtin").find_files()
-end, { noremap = true, silent = true })
-
--- Adds format behavior and leaves visual mode when format range was performed
+-- Adds format behavior and leaves visual mode when format range was performed fudge
 map("", "<leader>F", function()
   require("conform").format({ async = true }, function(err)
     if not err then
@@ -40,25 +23,25 @@ map("", "<leader>F", function()
   end)
 end, { desc = "Format code" })
 
--- Opens a LSP disgnostics locklist with workspace-wide errors
+-- Opens a LSP diagnostics locklist with workspace-wide errors
 map("n", "<leader>dE", function()
   vim.diagnostic.setqflist {
     severity = vim.diagnostic.severity.ERROR,
   }
 end, { desc = "LSP diagnostic locklist (workspace-wide errors)" })
 
+-- Adds find the references of a symbol
+map("n", "<leader>fR", function()
+  require("telescope.builtin").lsp_references {
+    reuse_win = true,
+  }
+end, { desc = "telescope find references" })
+
+-- Shows the contents of all registers
+map("n", "<leader>fr", require("telescope.builtin").registers, { desc = "telescope show registers" })
+
+map({ "n", "x" }, "<leader>ca", require("fastaction").code_action, { desc = "Display code actions" })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 -- When <ESC> is pressed exit insert mode in the terminal
 map("i", "jk", "<ESC>")
-
--- Shift + Arrow keys to enter Visual mode in that direction
-map("n", "<S-Left>", "v<Left>", { desc = "Visual left" })
-map("n", "<S-Right>", "v<Right>", { desc = "Visual right" })
-map("n", "<S-Up>", "v<Up>", { desc = "Visual up" })
-map("n", "<S-Down>", "v<Down>", { desc = "Visual down" })
-
--- Continue selection while in visual mode
-map("v", "<S-Left>", "<Left>", { desc = "Select left" })
-map("v", "<S-Right>", "<Right>", { desc = "Select right" })
-map("v", "<S-Up>", "<Up>", { desc = "Select up" })
-map("v", "<S-Down>", "<Down>", { desc = "Select down" })
