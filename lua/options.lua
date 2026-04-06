@@ -1,4 +1,4 @@
-require "nvchad.options"
+require("nvchad.options")
 
 -- add yours here!
 
@@ -12,3 +12,5 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 
 -- vim.opt.foldnestmax = 4
+
+vim.opt.pumheight = 10
