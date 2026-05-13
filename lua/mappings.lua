@@ -47,6 +47,6 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- Toggle display hints
-map("n", "<leader>dh", function()
-	vim.lsp.inlay_hint.enable(vim.lsp.inlay_hint.is_enabled())
+map("n", "<leader>lh", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "toggle display hints" })
