@@ -14,3 +14,7 @@ vim.opt.foldlevelstart = 99
 -- vim.opt.foldnestmax = 4
 
 vim.opt.pumheight = 10
+
+vim.opt.spelllang = "en_us"
+vim.opt.spelloptions = "noplainbuffer,camel"
+vim.opt.spell = true
